@@ -1,5 +1,6 @@
 "use client";
 
+import axios from "axios";
 import { useCallback, useState } from "react";
 import { FieldValues, useForm, SubmitHandler } from "react-hook-form";
 import { BsGithub, BsGoogle } from "react-icons/bs";
@@ -38,7 +39,7 @@ const AuthForm = () => {
     setIsLoading(true);
 
     if (variant === "REGISTER") {
-      // Axios call to register
+      axios.post("/api/register", data);
     }
     if (variant === "LOGIN") {
       // Axios call to login
@@ -68,6 +69,8 @@ const AuthForm = () => {
             <Input
               id="name"
               label="Name"
+              pattern="^\S+$"
+              //error in adding full name i.e with white space
               register={register}
               errors={errors}
               disabled={isLoading}

@@ -6,6 +6,7 @@ interface InputProps {
   label: string;
   id: string;
   type?: string;
+  pattern?: string;
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
@@ -16,6 +17,7 @@ const Input: React.FC<InputProps> = ({
   label,
   id,
   type = "text",
+  pattern,
   required,
   register,
   errors,
@@ -33,6 +35,7 @@ const Input: React.FC<InputProps> = ({
         <input
           id={id}
           type={type}
+          pattern={pattern}
           autoComplete={id}
           disabled={disabled}
           {...register(id, { required })}
