@@ -1,5 +1,8 @@
-import { authOptions } from "@/utils/authOptions";
-import NextAuth from "next-auth/next";
+// route.ts
+import NextAuth from "next-auth";
+import { AuthOptions } from "next-auth";
+
+import authOptions from "./options";
 
 const handler = NextAuth(authOptions);
 
